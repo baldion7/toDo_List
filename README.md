@@ -69,8 +69,8 @@ python manage.py runserver
 
 ## 🌐 URLs del Proyecto
 
-- **Página Principal**: `http://localhost:8000/taskes/` 
-- **Panel de Administración**: `http://localhost:8000/admin/`
+- **Página Principal**: `http://localhost:8000/taskes/` `https://to-do-list-plzj.vercel.app/taskes/`
+- **Panel de Administración**: `http://localhost:8000/admin/` `https://to-do-list-plzj.vercel.app/admin/`
 
 ## 📦 Estructura del Proyecto
 
