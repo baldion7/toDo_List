@@ -10,5 +10,9 @@
       "src": "/(.*)",
       "dest": "toDo_List/wsgi.py"
     }
-  ]
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "chat.settings",
+    "ALLOWED_HOSTS": ".vercel.app"
+  }
 }
