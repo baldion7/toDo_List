@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'toDo_List.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+          'ENGINE': 'mysql.connector.django',
         'NAME': 'marco',
         'USER': 'marco',
         'PASSWORD': 'M@rco123!',
