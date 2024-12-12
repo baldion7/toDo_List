@@ -5,7 +5,8 @@
 Un sistema completo de gestión de tareas desarrollado con Django que permite a los usuarios crear, editar, eliminar y
 administrar sus tareas con diferentes estados.
 
-![Captura de Pantalla](screenshot.png)
+![image](https://github.com/user-attachments/assets/6c54ef93-47e8-4435-937f-3e0aff57ca55)
+
 
 ## ✨ Características
 
@@ -172,11 +173,12 @@ Link del Proyecto: https://github.com/baldion7/toDo_List
 
 ### Vista Principal
 
-![Vista Principal](screenshot_main.png)
+![image](https://github.com/user-attachments/assets/db09b8e4-db47-4981-a393-f71e97fa8dd9)
 
 ### Edición de Tarea
 
-![Edición de Tarea](screenshot_edit.png)
+![image](https://github.com/user-attachments/assets/d2bf7878-93cd-4616-8cc6-22e83b261a8a)
+
 
 ---
 
