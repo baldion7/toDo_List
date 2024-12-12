@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Gestor de Tareas</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    Crear Nueva Tarea
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Guardar Tarea</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    Importar / Exportar
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Importar Tareas</label>
+                            <input type="file" name="import_tasks" class="form-control-file">
+                            <button type="submit" class="btn btn-secondary mt-2">Importar</button>
+                        </div>
+                    </form>
+                    <a href="{% url 'export_tasks' %}" class="btn btn-info">Exportar Tareas</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+            <h2>Lista de Tareas</h2>
+            {% if tasks %}
+                <div class="list-group">
+                    {% for task in tasks %}
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ task.title }}</h5>
+                                <small>{{ task.created_at|date:"d/m/Y H:i" }}</small>
+                            </div>
+                            <p class="mb-1">{{ task.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge 
+                                    {% if task.status == 'pendiente' %}badge-secondary
+                                    {% elif task.status == 'en_proceso' %}badge-warning
+                                    {% elif task.status == 'completado' %}badge-success
+                                    {% else %}badge-danger
+                                    {% endif %}">
+                                    {{ task.get_status_display }}
+                                </span>
+                                <div>
+                                    <a href="{% url 'change_task_status' task.id %}" class="btn btn-sm btn-outline-primary">
+                                        Cambiar Estado
+                                    </a>
+                                    <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-outline-secondary">
+                                        Editar
+                                    </a>
+                                    <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Estás seguro de eliminar esta tarea?')">
+                                        Eliminar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No hay tareas registradas.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
