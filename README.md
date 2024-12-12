@@ -1,8 +1,9 @@
-# Gestor de Tareas - Django 
+# Gestor de Tareas - Django
 
 ## 📋 Descripción del Proyecto
 
-Un sistema completo de gestión de tareas desarrollado con Django que permite a los usuarios crear, editar, eliminar y administrar sus tareas con diferentes estados.
+Un sistema completo de gestión de tareas desarrollado con Django que permite a los usuarios crear, editar, eliminar y
+administrar sus tareas con diferentes estados.
 
 ![Captura de Pantalla](screenshot.png)
 
@@ -26,8 +27,8 @@ Un sistema completo de gestión de tareas desarrollado con Django que permite a 
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/TuUsuario/gestor-tareas-django.git
-cd gestor-tareas-django
+git clone https://github.com/baldion7/toDo_List.git
+cd toDo_List
 ```
 
 ### 2. Crear Entorno Virtual (Opcional pero Recomendado)
@@ -68,7 +69,7 @@ python manage.py runserver
 
 ## 🌐 URLs del Proyecto
 
-- **Página Principal**: `http://localhost:8000/taskes/`
+- **Página Principal**: `http://localhost:8000/taskes/` 
 - **Panel de Administración**: `http://localhost:8000/admin/`
 
 ## 📦 Estructura del Proyecto
@@ -129,11 +130,30 @@ Distribuido bajo la Licencia MIT. Consulta `LICENSE` para más información.
 
 ## 🛠️ Tecnologías Utilizadas
 
-- Python 3
-- Django
+- Python 3.12.8
+- Django 2.3.3
 - Bootstrap 5
-- HTML5
-- SQLite
+- HTML 5
+- asgiref 3.8.1
+- certifi 2024.8.30
+- charset-normalizer 3.4.0
+- coreapi 2.3.3
+- coreschema 0.0.4
+- Django 5.1.4
+- django-cors-headers 4.6.0
+- djangorestframework 3.15.2
+- idna 3.10
+- itypes 1.2.0
+- Jinja2 3.1.4
+- MarkupSafe 3.0.2
+- mysqlclient 2.2.6
+- pip 24.3.1
+- requests 2.32.3
+- setuptools 75.6.0
+- sqlparse 0.5.3
+- tzdata 2024.2
+- uritemplate 4.1.1
+- urllib3 2.2.3
 
 ## 🔍 Próximas Mejoras
 
@@ -144,18 +164,19 @@ Distribuido bajo la Licencia MIT. Consulta `LICENSE` para más información.
 
 ## 📞 Contacto
 
-Tu Nombre - [Tu Email]
+- [Kevin Jose Quiñones Baldion](https://github.com/baldion7) - [baldionkevin8@gmail.com](mailto:baldionkevin8@gmail.com)
 
-Link del Proyecto: https://github.com/TuUsuario/gestor-tareas-django
+Link del Proyecto: https://github.com/baldion7/toDo_List
 
 ## Capturas de Pantalla
 
 ### Vista Principal
+
 ![Vista Principal](screenshot_main.png)
 
 ### Edición de Tarea
+
 ![Edición de Tarea](screenshot_edit.png)
 
 ---
 
-**Nota**: Reemplaza los marcadores de posición (Tu Usuario, Tu Email, etc.) con tu información real.
