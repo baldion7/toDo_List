@@ -12,7 +12,7 @@
     }
   ],
   "env": {
-    "DJANGO_SETTINGS_MODULE": "chat.settings",
+    "DJANGO_SETTINGS_MODULE": "toDo_List.settings",
     "ALLOWED_HOSTS": ".vercel.app"
   }
 }
