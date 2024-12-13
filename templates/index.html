@@ -35,7 +35,7 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label>Importar Tareas</label>
+                            <label for="import_tasks">Importar Tareas</label>
                             <input type="file" name="import_tasks" class="form-control-file">
                             <button type="submit" class="btn btn-secondary mt-2">Importar</button>
                         </div>
@@ -69,7 +69,7 @@
                                     <a href="{% url 'change_task_status' task.id %}" class="btn btn-sm btn-outline-primary">
                                         Cambiar Estado
                                     </a>
-                                    <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-outline-secondary">
+                                    <a href="{% url 'edit_task_get' task.id %}" class="btn btn-sm btn-outline-secondary">
                                         Editar
                                     </a>
                                     <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Estás seguro de eliminar esta tarea?')">

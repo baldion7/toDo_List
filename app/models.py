@@ -2,7 +2,7 @@ from django.db import models
 
 class ToDo(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True)
     status = models.CharField(
         max_length=20,
         choices=[

@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from decouple import config
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!f9m%5b4_r!x_o9e!sx=vv0r8+t7&*%3avpm$bx$o!+y)%i79j'
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
 
@@ -36,10 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-     'rest_framework',
+    'rest_framework',
     'corsheaders',  # Para manejar CORS
     'coreapi',  # Para documentación de APIs
-
 
 ]
 
@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'toDo_List.wsgi.application'
 
 DATABASES = {
     'default': {
-          'ENGINE': 'mysql.connector.django',
-        'NAME': 'marco',
-        'USER': 'marco',
-        'PASSWORD': 'M@rco123!',
-        'HOST': '82.112.250.19',
-        'PORT': '3306',
+        'ENGINE': 'mysql.connector.django',
+        'NAME': config('DB_NAME', default='mydatabase'),
+        'USER': config('DB_USER', default='user'),
+        'PASSWORD': config('DB_PASSWORD', default='password'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
 
