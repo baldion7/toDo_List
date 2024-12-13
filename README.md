@@ -181,7 +181,8 @@ Link del Proyecto: https://github.com/baldion7/toDo_List
 
 ### Resultados de sonarqube
 
-![image](https://github.com/user-attachments/assets/4cd88097-c687-49aa-845a-e9b31a450cb1)
+![image](https://github.com/user-attachments/assets/d87fab0c-d2aa-4d8d-ada1-129c638f744f)
+
 
 ---
 
