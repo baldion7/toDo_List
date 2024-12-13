@@ -7,11 +7,29 @@ from .forms import TodoForm
 import json
 from django.http import HttpResponse
 
+
 @require_http_methods(["GET"])
 @csrf_protect
-def list_tasks(request):
-    # Importar tareas
-    if request.method == 'POST' and 'import_tasks' in request.FILES:
+def list_tasks_get(request):
+    """
+    Muestra la lista de todas las tareas.
+    Solo acepta solicitudes GET.
+    """
+    tasks = ToDo.objects.all()
+    form = TodoForm()
+    return render(request, 'index.html', {
+        'tasks': tasks,
+        'form': form
+    })
+
+
+@require_http_methods(["POST"])
+def import_tasks(request):
+    """
+    Importa tareas desde un archivo JSON cargado en un formulario.
+    Solo acepta solicitudes POST con protección CSRF.
+    """
+    if 'import_tasks' in request.FILES:
         try:
             file = request.FILES['import_tasks']
             tasks_data = json.load(file)
@@ -29,22 +47,32 @@ def list_tasks(request):
 
             messages.success(request, 'Tareas importadas exitosamente.')
             return redirect('list_tasks')
+
         except Exception as e:
             messages.error(request, f'Error al importar tareas: {str(e)}')
 
-    # Crear nueva tarea
-    form = TodoForm(request.POST or None)
+
+    return redirect('list_tasks')
+
+@require_http_methods(["POST"])
+@csrf_protect
+def create_task_post(request):
+    """
+    Crea una nueva tarea a partir del formulario.
+    Solo acepta solicitudes POST con protección CSRF.
+    """
+    form = TodoForm(request.POST)
     if form.is_valid():
         form.save()
         messages.success(request, 'Tarea creada exitosamente.')
         return redirect('list_tasks')
 
-    # Listar tareas
     tasks = ToDo.objects.all()
     return render(request, 'index.html', {
         'tasks': tasks,
         'form': form
     })
+
 
 @require_http_methods(["GET"])
 def edit_task_get(request, task_id):

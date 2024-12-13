@@ -19,7 +19,7 @@
                     Crear Nueva Tarea
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" action="{% url 'create_task_post' %}">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-primary">Guardar Tarea</button>
@@ -32,7 +32,7 @@
                     Importar / Exportar
                 </div>
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data" action="{% url 'import_tasks' %}">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="import_tasks">Importar Tareas</label>
