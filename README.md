@@ -50,7 +50,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Configurar Base de Datos
+### 4. Configurar Base de Datos, ya esta conectado a una base de datos remota en un vps
 
 ```bash
 python manage.py migrate
